@@ -1,0 +1,41 @@
+Project 
+Github/Git Personal (So that we can practice Git pull)
+Ansible (Playbook to configure Jenkins and Webserver)
+JenkinsFile creation for Pipeline in Github.
+AWS - 3 EC2 Instances 
+Jenkins Pipeline (CI/CD)
+ANT/MAVEN (if needed)
+IntelliJ IDE (to modify Source Code) with JDK 1.8 on personal systems).
+Putty
+
+Source Code: https://github.com/badal1443/First-TestRepo
+
+------
+Docker
+Kubernetes
+
+-----
+Project User Requirements.
+Individual Github account.
+Acces to EC3 instances
+Crdentials for Jenkins
+IAM users in AWS for the team.
+
+--------
+Advance knowledge on creating AWS instances + Jenkins installation + webservices through Ansible Playbook. 
+Constainerise this project for Docker and Kubernetes.
+
+
+---------------IMPLEMENTATION PLAN
+Github source code readiness.
+Enjoy writting Ansible Playbook in GitHub.
+Be creative writing JenkinsFile for CI/CD Pipeline.
+Spin up AWS - 3 EC2 Instances 
+Run Ansible Playbook to install Jenkins on EC2-B and Apache on EC2-C.
+Write Junit test cases for Pipeline
+Write Smoke Test Script.
+Create Jenkins Pipeline Job for build/deployment of code in Github.
+Splunk for log monitoring. (Splunk plugin for Jenkins).
+
+
+
