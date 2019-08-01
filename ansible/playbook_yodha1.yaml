@@ -14,10 +14,6 @@
        service:
          name: httpd
          state: started
-     - name: Restart the firewalld service to load in the firewall changes
-       service:
-         name: firewalld
-         state: restarted
  - hosts: host2
    sudo: yes
    name: yodha1_jenkins
