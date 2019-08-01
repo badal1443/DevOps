@@ -1,9 +1,31 @@
 # Got the content of task to install Jenkins from following URL.
 # https://awsbloglink.wordpress.com/2018/10/08/how-to-install-jenkins-using-ansible-version-2018/
+# https://codingbee.net/ansible/ansible-a-playbook-for-setting-up-an-apache-webserver
 ---
  - hosts: host1
    sudo: yes
-   name: yodha1
+   name: yodha1_apache
+   tasks:
+     - name: Install apache packages
+       yum:
+         name: httpd
+         state: present
+     - name: ensure httpd is running
+       service:
+         name: httpd
+         state: started
+     - name: Open port 80 for http access
+       firewalld:
+         service: http
+         permanent: true
+         state: enabled
+     - name: Restart the firewalld service to load in the firewall changes
+       service:
+         name: firewalld
+         state: restarted
+ - hosts: host1
+   sudo: yes
+   name: yodha1_jenkins
    tasks:
     - name: Install yum
       yum:
