@@ -7,6 +7,17 @@ EC2-A (redhat linux) will be having ansible installed on it.
 EC2-B will be used as a machine to install Jenkins tool.
 We will generate ssh key on EC2-A , without password and use it to connect to EC2-B machine.**
 
+## Steps to Generate SSH key and adding it to remote server.
+**Steps:**
+1. Generate ssh key on EC2-A using command *ssh-keygen -t rsa -C "name of the key/identifier"*. It will generate provate and public key at this location. *~/.ssh/*.
+2. Copy content of id_rsa.pub.
+3. Login to remote machines EC2-B and EC2-C and go to location *~/.ssh/*. open *authorized_keys* file in vi editor using command *sudo vi authorized_keys* and add content of public key into this file and save it.
+4. Now you can test if these SSH keys are working for you. Go to EC2-A and run command *ssh <ip_address of EC2-B/EC2-C>*. If successful, then you're all set.
+
+## Steps to add Hosts in ansible file.
+**Steps:**
+
+
 On EC2-A
 Goto /etc/ansible directory and run
 
@@ -83,3 +94,5 @@ ok: [host2] => {
 PLAY RECAP ******************************************************************************************************************************************************
 host1                      : ok=3    changed=0    unreachable=0    failed=0   
 host2                      : ok=9    changed=5    unreachable=0    failed=0   
+
+---------
