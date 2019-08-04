@@ -16,30 +16,39 @@ We will generate ssh key on EC2-A , without password and use it to connect to EC
 
 ## Steps to add Hosts in ansible file.
 **Steps:**
-
-
-On EC2-A
-Goto /etc/ansible directory and run
-
-sudo vi hosts
-
-and add following lines to add new host under a group named yodha.
-[yodha]
-host1 ansible_ssh_host=34.221.214.11
-
-After making this change. Run a command to see if ansible able to ping EC2-B server.
-ansible -m ping all
-
-result:
-ec2-user:/etc/ansible $ ansible -m ping all
-The authenticity of host '34.221.214.11 (34.221.214.11)' can't be established.
-ECDSA key fingerprint is SHA256:Lhpx6Uushgqb6URqSfBkBriTA2O5ZHNCw+IawbaSzuU.
-ECDSA key fingerprint is MD5:3c:ad:98:a8:78:04:da:56:5f:b9:5e:14:b3:dd:82:16.
-Are you sure you want to continue connecting (yes/no)? yes
-host1 | SUCCESS => {
-    "changed": false, 
-    "ping": "pong"
-}
+1. Go to the client machine EC2-A, where ansible is installed.
+2. change directory to */etc/ansible* using command *cd /etc/ansible*.
+3. Update **hosts** file using vi or nano editor and add following lines at the end of hosts file.
+    > [yodha] 
+    
+    > host1 ansible_ssh_host=<ip address of EC2-C>
+    
+    > host2 ansible_ssh_host=<ip address of EC2-B>
+    
+ 4. Now, you need to test if you ansible machine can actually reach to other 2 machines. To do so, run following commenad.
+    > ansible -m ping all
+ 5. If machines added successfully in hosts file, you will see success message after running __*ansible -m ping all*__ like this.
+    
+    > ec2-user:/etc/ansible $ ansible -m ping all  
+    > The authenticity of host '34.221.214.11 (34.221.214.11)' can't be established.  
+    > ECDSA key fingerprint is SHA256:Lhpx6Uushgqb6URqSfBkBriTA2O5ZHNCw+IawbaSzuU.  
+    > ECDSA key fingerprint is MD5:3c:ad:98:a8:78:04:da:56:5f:b9:5e:14:b3:dd:82:16.  
+    > Are you sure you want to continue connecting (yes/no)? yes  
+    > host1 | SUCCESS => {  
+    > "changed": false,    
+    > "ping": "pong"  
+    > }  
+    
+    __OR__
+    
+    > host2 | SUCCESS => {  
+        > "changed": false,   
+        > "ping": "pong"  
+    > }  
+    > host1 | SUCCESS => {  
+        > "changed": false,   
+        > "ping": "pong"  
+    > }  
 
 
 -----------
