@@ -13,8 +13,18 @@
    > a. *sudo yum update*  
    > b. *sudo yum install java-1.8.0-openjdk*
 5. Now, go to Jenkins , and click on Manage Jenkins.
-6. Find and open **Manage Jenkins**.
+6. Find and open **Manage Jenkins** and then **Manage Nodes**.
+![ManageJenkins](../images/1.png)
 7. Add a new node as ec2Label1.
+![ManageJenkins](../images/2.png)
 8. In configuration section , for label put as *label1*.
+![ManageJenkins](../images/3.png)
+9. In configuration section , To let jenkins access new node, add private key in credential as shown below.
+![ManageJenkins](../images/4.png)
+![ManageJenkins](../images/5.png)
+![ManageJenkins](../images/6.png)
+10. Finally it will have a node added.
+![ManageJenkins](../images/7.png)
 
+** Thank you **
 
